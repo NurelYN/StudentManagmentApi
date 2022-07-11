@@ -1,4 +1,4 @@
-package com.example.studentdomain.exception;
+package com.example.studentdomain.exception.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

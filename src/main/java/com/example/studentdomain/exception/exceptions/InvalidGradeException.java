@@ -1,4 +1,4 @@
-package com.example.studentdomain.exception;
+package com.example.studentdomain.exception.exceptions;
 
 public class InvalidGradeException  extends  RuntimeException{
     public InvalidGradeException(String message) {

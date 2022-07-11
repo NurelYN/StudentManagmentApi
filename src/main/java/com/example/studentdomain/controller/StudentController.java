@@ -4,7 +4,7 @@ package com.example.studentdomain.controller;
 import com.example.studentdomain.dto.student.StudentResponse;
 import com.example.studentdomain.dto.student.StudentSaveRequest;
 import com.example.studentdomain.dto.student.StudentUpdateRequest;
-import com.example.studentdomain.exception.RecordNotFoundException;
+import com.example.studentdomain.exception.exceptions.RecordNotFoundException;
 import com.example.studentdomain.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,12 +33,8 @@ public class StudentController {
 
     @GetMapping(value="/{id}")
     public ResponseEntity findById(@PathVariable Long id){
-        try{
             StudentResponse response = studentService.findById(id);
            return ResponseEntity.ok().body(response);
-        } catch(RecordNotFoundException ex){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,ex.getMessage());
-        }
     }
 
     @PostMapping
@@ -49,22 +45,14 @@ public class StudentController {
 
     @DeleteMapping(value="/{id}")
     public ResponseEntity<StudentResponse> deleteById(@PathVariable Long id){
-        try{
             StudentResponse deletedStudent = studentService.delete(id);
             return ResponseEntity.ok().body(deletedStudent);
-        } catch(RecordNotFoundException ex){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,ex.getMessage());
-        }
     }
 
     @PutMapping(value="/{id}")
     public ResponseEntity<StudentResponse> update(@RequestBody StudentUpdateRequest studentUpdateRequest, @PathVariable Long id){
-        try {
             StudentResponse updated = studentService.update(studentUpdateRequest, id);
             return ResponseEntity.ok().body(updated);
-        } catch(RecordNotFoundException ex){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,ex.getMessage());
-        }
     }
 
 //    @ExceptionHandler(RecordNotFoundException.class)

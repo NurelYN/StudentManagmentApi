@@ -2,7 +2,7 @@ package com.example.studentdomain.controller;
 import com.example.studentdomain.dto.teacher.TeacherResponse;
 import com.example.studentdomain.dto.teacher.TeacherSaveRequest;
 import com.example.studentdomain.dto.teacher.TeacherUpdateRequest;
-import com.example.studentdomain.exception.RecordNotFoundException;
+import com.example.studentdomain.exception.exceptions.RecordNotFoundException;
 import com.example.studentdomain.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,12 +31,8 @@ public class TeacherController {
 
     @GetMapping(value="/{id}")
     public ResponseEntity<TeacherResponse> findById(@PathVariable Long id){
-        try {
             TeacherResponse response = teacherService.findById(id);
             return ResponseEntity.ok().body(response);
-        } catch (RecordNotFoundException ex){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,ex.getMessage());
-        }
     }
 
     @PostMapping
@@ -47,21 +43,14 @@ public class TeacherController {
 
     @DeleteMapping(value="/{id}")
     public ResponseEntity<TeacherResponse> deleteById(@PathVariable Long id){
-        try {
             TeacherResponse deletedTeacher = teacherService.delete(id);
             return ResponseEntity.ok().body(deletedTeacher);
-        } catch (RecordNotFoundException ex){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,ex.getMessage());
-        }
     }
 
     @PutMapping(value="/{id}")
-    public ResponseEntity<TeacherResponse> update(@RequestBody TeacherUpdateRequest teacherUpdateRequest, @PathVariable Long id){
-        try {
-            TeacherResponse updated = teacherService.update(teacherUpdateRequest, id);
-            return ResponseEntity.ok().body(updated);
-        } catch(RecordNotFoundException ex){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,ex.getMessage());
-        }
+    public ResponseEntity<TeacherResponse> update(@RequestBody TeacherUpdateRequest teacherUpdateRequest, @PathVariable Long id) {
+        TeacherResponse updated = teacherService.update(teacherUpdateRequest, id);
+        return ResponseEntity.ok().body(updated);
     }
+
 }
