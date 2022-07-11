@@ -4,7 +4,7 @@ package com.example.studentdomain.service;
 import com.example.studentdomain.dto.student.StudentResponse;
 import com.example.studentdomain.dto.student.StudentSaveRequest;
 import com.example.studentdomain.entity.Student;
-import com.example.studentdomain.exception.RecordNotFoundException;
+import com.example.studentdomain.exception.exceptions.RecordNotFoundException;
 import com.example.studentdomain.mapper.StudentMapper;
 import com.example.studentdomain.repository.StudentRepository;
 import com.example.studentdomain.service.Impl.StudentServiceImpl;

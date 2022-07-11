@@ -4,7 +4,7 @@ import com.example.studentdomain.dto.studentEnrollment.StudentEnrollmentSaveRequ
 import com.example.studentdomain.entity.Course;
 import com.example.studentdomain.entity.Student;
 import com.example.studentdomain.entity.StudentEnrollment;
-import com.example.studentdomain.exception.RecordNotFoundException;
+import com.example.studentdomain.exception.exceptions.RecordNotFoundException;
 import com.example.studentdomain.repository.CourseRepository;
 import com.example.studentdomain.repository.StudentEnrollmentRepository;
 import com.example.studentdomain.repository.StudentRepository;

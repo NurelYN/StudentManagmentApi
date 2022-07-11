@@ -4,7 +4,7 @@ import com.example.studentdomain.dto.teacher.TeacherResponse;
 import com.example.studentdomain.dto.teacher.TeacherSaveRequest;
 import com.example.studentdomain.dto.teacher.TeacherUpdateRequest;
 import com.example.studentdomain.entity.Teacher;
-import com.example.studentdomain.exception.RecordNotFoundException;
+import com.example.studentdomain.exception.exceptions.RecordNotFoundException;
 import com.example.studentdomain.mapper.TeacherMapper;
 import com.example.studentdomain.repository.TeacherRepository;
 import com.example.studentdomain.service.TeacherService;
